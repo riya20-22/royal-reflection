@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Reflection — Hair, Skin &amp; Spa Atelier</title>
+<meta name="description" content="Royal Reflection is a private hair, skin and spa atelier. Master colourists, bridal artistry, nail studio and signature spa rituals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --emerald-deep:#0a2620;
+    --emerald:#0e3a2c;
+    --emerald-soft:#154a39;
+    --gold:#c9a24b;
+    --gold-light:#e8d5a8;
+    --ivory:#f7f3ea;
+    --blush:#b97a6d;
+    --ink:#0a1410;
+    --serif:'Cormorant',serif;
+    --sans:'Manrope',sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    background:var(--ivory);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--gold);display:inline-block;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;color:var(--emerald-deep);}
+  p{line-height:1.7;margin:0;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px 30px;border-radius:2px;font-family:var(--sans);font-weight:700;
+    font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    cursor:pointer;border:1px solid transparent;transition:transform .25s ease,background .25s ease,color .25s ease;
+  }
+  .btn-gold{background:var(--gold);color:var(--emerald-deep);}
+  .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+  .btn-ghost{border-color:rgba(247,243,234,.45);color:var(--ivory);}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-2px);}
+  .btn-dark{border-color:var(--emerald-deep);color:var(--emerald-deep);}
+  .btn-dark:hover{background:var(--emerald-deep);color:var(--ivory);}
+
+  /* ---------- Reflection signature element ---------- */
+  .reflect{position:relative;}
+  .reflect img{width:100%;height:100%;object-fit:cover;border-radius:1px;}
+  .reflect-ghost{
+    position:absolute;left:0;right:0;top:100%;height:42%;
+    background-size:cover;background-position:center;
+    transform:scaleY(-1);
+    opacity:.20;
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 85%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 85%);
+    pointer-events:none;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    padding:22px 0;
+    transition:background .35s ease,padding .35s ease,box-shadow .35s ease;
+  }
+  header.solid{background:rgba(10,38,32,.96);padding:14px 0;box-shadow:0 6px 24px rgba(0,0,0,.18);}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:var(--serif);font-size:24px;letter-spacing:.04em;color:var(--ivory);font-weight:600;}
+  .logo em{font-style:normal;color:var(--gold-light);}
+  .nav-links{display:flex;gap:34px;align-items:center;}
+  .nav-links a{
+    font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--ivory);
+    opacity:.85;transition:opacity .2s,color .2s;
+  }
+  .nav-links a:hover{opacity:1;color:var(--gold-light);}
+  .nav-cta{margin-left:8px;}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+  .burger span{width:24px;height:2px;background:var(--ivory);display:block;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    overflow:hidden;background:var(--emerald-deep);
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:saturate(.9) brightness(.65);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,38,32,.55) 0%, rgba(10,38,32,.55) 35%, rgba(10,38,32,.92) 100%),
+               radial-gradient(circle at 50% 30%, rgba(201,162,75,.10), transparent 60%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%;text-align:center;padding:160px 28px 90px;}
+  .hero-title{
+    font-size:clamp(56px,10vw,118px);line-height:.96;color:var(--ivory);font-weight:600;
+  }
+  .hero-title .line1{display:block;}
+  .reflect-word{position:relative;display:inline-block;color:var(--gold-light);}
+  .reflect-word .ghost-text{
+    display:block;transform:scaleY(-1);opacity:.28;margin-top:-.06em;
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 72%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 72%);
+    pointer-events:none;user-select:none;
+  }
+  .hero-sub{
+    max-width:560px;margin:26px auto 0;color:rgba(247,243,234,.85);font-size:17px;line-height:1.8;
+    font-family:var(--sans);
+  }
+  .hero-actions{display:flex;gap:18px;justify-content:center;margin-top:38px;flex-wrap:wrap;}
+  .hero-stats{
+    display:flex;justify-content:center;gap:56px;margin-top:64px;flex-wrap:wrap;
+  }
+  .hero-stats div{text-align:center;}
+  .hero-stats b{display:block;font-family:var(--serif);font-size:30px;color:var(--gold-light);font-weight:600;}
+  .hero-stats span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,243,234,.7);}
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;
+    width:1px;height:46px;background:linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* ---------- Section shells ---------- */
+  section{padding:120px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(32px,4vw,46px);margin-top:14px;}
+  .dark-section{background:var(--emerald-deep);color:var(--ivory);}
+  .dark-section h2,.dark-section h3{color:var(--ivory);}
+  .dark-section p{color:rgba(247,243,234,.78);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  .about-copy p{font-size:17px;margin-top:18px;color:#33423c;}
+  .about-quote{
+    font-family:var(--serif);font-style:italic;font-size:23px;color:var(--emerald-deep);
+    margin-top:26px;line-height:1.5;border-left:2px solid var(--gold);padding-left:20px;
+  }
+  .about-stats{display:flex;gap:46px;margin-top:38px;}
+  .about-stats div b{display:block;font-family:var(--serif);font-size:32px;color:var(--emerald);}
+  .about-stats div span{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5d6b65;}
+  .about-img-wrap{position:relative;}
+  .about-img-wrap .reflect{box-shadow:0 30px 60px -20px rgba(10,38,32,.35);}
+
+  /* ---------- Services ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
+  .svc-card{position:relative;}
+  .svc-img{position:relative;border-radius:1px;overflow:hidden;aspect-ratio:4/5;}
+  .svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .svc-card:hover .svc-img img{transform:scale(1.06);}
+  .svc-num{
+    position:absolute;top:16px;left:16px;font-family:var(--serif);font-style:italic;
+    font-size:14px;color:var(--ivory);background:rgba(10,38,32,.55);padding:5px 11px;letter-spacing:.04em;
+  }
+  .svc-body{padding-top:20px;}
+  .svc-body h3{font-size:24px;}
+  .svc-price{color:var(--gold);font-family:var(--sans);font-weight:700;font-size:13px;letter-spacing:.04em;margin-top:6px;display:block;}
+  .svc-body p{margin-top:10px;color:#465650;font-size:15px;}
+
+  /* ---------- Video feature ---------- */
+  .feature-video{position:relative;min-height:78vh;overflow:hidden;background:var(--emerald-deep);}
+  .feature-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.85;}
+  .feature-video::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(10,38,32,.92) 0%, rgba(10,38,32,.35) 55%, rgba(10,38,32,.75) 100%);}
+  .feature-inner{position:relative;z-index:2;height:78vh;display:flex;align-items:center;}
+  .feature-text{max-width:480px;color:var(--ivory);}
+  .feature-text .eyebrow{color:var(--gold-light);}
+  .feature-text h2{color:var(--ivory);font-size:clamp(30px,4vw,44px);margin-top:14px;}
+  .feature-text p{color:rgba(247,243,234,.82);margin-top:16px;font-size:16px;}
+  .mute-btn{
+    margin-top:26px;display:inline-flex;align-items:center;gap:10px;background:none;border:1px solid rgba(247,243,234,.4);
+    color:var(--ivory);padding:11px 20px;border-radius:30px;cursor:pointer;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-family:var(--sans);font-weight:700;
+  }
+  .mute-btn:hover{border-color:var(--gold);color:var(--gold-light);}
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px;
+  }
+  .gallery-grid figure{position:relative;margin:0;overflow:hidden;border-radius:1px;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .gallery-grid figure:hover img{transform:scale(1.08);}
+  .gallery-grid figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:14px 16px;
+    background:linear-gradient(to top, rgba(10,38,32,.85), transparent);
+    color:var(--ivory);font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;
+    opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;
+  }
+  .gallery-grid figure:hover figcaption{opacity:1;transform:translateY(0);}
+  .g-tall{grid-row:span 2;}
+  .g-wide{grid-column:span 2;}
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .testi-card{
+    background:var(--ivory);border:1px solid rgba(10,38,32,.08);padding:34px 30px;border-radius:1px;
+  }
+  .testi-mark{font-family:var(--serif);font-size:44px;color:var(--gold);line-height:1;display:block;}
+  .testi-card p{margin-top:10px;font-size:16px;color:#3a4a44;font-style:italic;font-family:var(--serif);line-height:1.6;}
+  .testi-name{margin-top:20px;font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--emerald);}
+  .testi-role{font-size:12px;color:#79867f;margin-top:2px;display:block;}
+
+  /* ---------- Booking ---------- */
+  .book-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;}
+  .book-form{display:grid;gap:18px;}
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(247,243,234,.65);font-weight:700;}
+  .field input,.field select,.field textarea{
+    background:rgba(247,243,234,.06);border:1px solid rgba(247,243,234,.22);color:var(--ivory);
+    padding:13px 14px;font-family:var(--sans);font-size:14px;border-radius:2px;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(247,243,234,.4);}
+  .field select option{color:#000;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .form-msg{display:none;color:var(--gold-light);font-size:13px;margin-top:6px;}
+  .visit-card{display:grid;gap:26px;}
+  .visit-item b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;}
+  .visit-item span{color:rgba(247,243,234,.82);font-size:15px;line-height:1.6;display:block;}
+  .social-row{display:flex;gap:14px;margin-top:6px;}
+  .social-row a{
+    border:1px solid rgba(247,243,234,.3);padding:9px 16px;border-radius:30px;font-size:12px;
+    letter-spacing:.05em;text-transform:uppercase;font-weight:700;
+  }
+  .social-row a:hover{border-color:var(--gold);color:var(--gold-light);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--emerald-deep);color:rgba(247,243,234,.65);padding:60px 0 30px;border-top:1px solid rgba(247,243,234,.08);}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px;}
+  .foot-logo{font-family:var(--serif);font-size:24px;color:var(--ivory);}
+  .foot-logo .ghost-text{display:block;transform:scaleY(-1);opacity:.22;margin-top:-.05em;
+    -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 70%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 70%);}
+  .foot-links{display:flex;gap:28px;flex-wrap:wrap;}
+  .foot-links a{font-size:13px;text-transform:uppercase;letter-spacing:.05em;}
+  .foot-links a:hover{color:var(--gold-light);}
+  .foot-bottom{margin-top:46px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(247,243,234,.08);padding-top:22px;}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (max-width:980px){
+    .about-grid,.book-grid{grid-template-columns:1fr;gap:46px;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .burger{display:flex;}
+  }
+  @media (max-width:640px){
+    .svc-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px;}
+    .g-wide{grid-column:span 2;}
+    .hero-stats{gap:30px;}
+    .field-row{grid-template-columns:1fr;}
+    .feature-inner,.feature-video{min-height:60vh;}
+    .feature-inner{height:60vh;}
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap nav-row">
+    <a href="#top" class="logo">Royal <em>Reflection</em></a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#visit">Visit Us</a>
+      <a href="#visit" class="btn btn-gold nav-cta">Book Now</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/3993320/pexels-photo-3993320.jpeg">
+    <source src="https://videos.pexels.com/video-files/7754473/7754473-hd_1080_1920_30fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <span class="eyebrow" style="justify-content:center;">Pune's Private Beauty Atelier</span>
+    <h1 class="hero-title">
+      <span class="line1">Royal</span>
+      <span class="reflect-word">
+        <span class="real-text">Reflection</span>
+        <span class="ghost-text" aria-hidden="true">Reflection</span>
+      </span>
+    </h1>
+    <p class="hero-sub">Hair artistry, skin therapy and spa rituals for the version of you that you came in looking for. One chair, one mirror, one hour to remember.</p>
+    <div class="hero-actions">
+      <a href="#visit" class="btn btn-gold">Reserve Your Chair</a>
+      <a href="#services" class="btn btn-ghost">Explore Services</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>12</b><span>Master Stylists</span></div>
+      <div><b>4.9</b><span>Average Rating</span></div>
+      <div><b>30+</b><span>Signature Rituals</span></div>
+    </div>
+  </div>
+  <span class="scroll-cue"></span>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="eyebrow">The Philosophy</span>
+      <h2>The art of being seen</h2>
+      <p>Royal Reflection was built on a simple idea: a good salon doesn't just change how you look — it changes how honestly you can look at yourself. Every chair here faces a mirror on purpose.</p>
+      <p>Our colourists, therapists and artists train across hair, skin and bridal craft, so the person who shapes your cut is the same person who will tell you, kindly, what actually suits you.</p>
+      <p class="about-quote">"We don't sell transformations. We just remove what was standing between you and your reflection."</p>
+      <div class="about-stats">
+        <div><b>9 yrs</b><span>In Pune</span></div>
+        <div><b>30+</b><span>Rituals</span></div>
+        <div><b>3.4K</b><span>Regulars</span></div>
+      </div>
+    </div>
+    <div class="about-img-wrap reveal">
+      <div class="reflect">
+        <img src="https://images.pexels.com/photos/1654834/pexels-photo-1654834.jpeg" alt="Elegant Royal Reflection salon interior with mirrors and warm wood decor">
+        <div class="reflect-ghost" style="background-image:url('https://images.pexels.com/photos/1654834/pexels-photo-1654834.jpeg');"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:#f1ece0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Menu</span>
+      <h2>Rituals, by craft</h2>
+    </div>
+    <div class="svc-grid">
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">I</span>
+          <img src="https://images.pexels.com/photos/3993462/pexels-photo-3993462.jpeg" alt="Hairstylist cutting wet hair in a professional salon">
+        </div>
+        <div class="svc-body">
+          <h3>Hair Artistry</h3>
+          <span class="svc-price">From ₹1,200</span>
+          <p>Precision cuts, balayage and colour correction from stylists who train every season.</p>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">II</span>
+          <img src="https://images.pexels.com/photos/9146381/pexels-photo-9146381.jpeg" alt="Therapist giving a relaxing massage in a serene spa setting">
+        </div>
+        <div class="svc-body">
+          <h3>Spa &amp; Massage</h3>
+          <span class="svc-price">From ₹2,000</span>
+          <p>Deep tissue, aromatherapy and signature rituals to undo a long week, slowly.</p>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">III</span>
+          <img src="https://images.pexels.com/photos/34121866/pexels-photo-34121866.jpeg" alt="Vibrant intricate nail art on a woman's hands">
+        </div>
+        <div class="svc-body">
+          <h3>Nail Studio</h3>
+          <span class="svc-price">From ₹800</span>
+          <p>Gel, extensions and hand-painted nail art, finished under proper daylight bulbs.</p>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">IV</span>
+          <img src="https://images.pexels.com/photos/31141635/pexels-photo-31141635.jpeg" alt="Makeup artist applying lipstick for bridal makeup">
+        </div>
+        <div class="svc-body">
+          <h3>Bridal &amp; Editorial Makeup</h3>
+          <span class="svc-price">From ₹5,000</span>
+          <p>Trial-first bridal artistry, plus party and editorial looks that photograph as well as they feel.</p>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">V</span>
+          <img src="https://images.pexels.com/photos/30809943/pexels-photo-30809943.jpeg" alt="Close-up of a person receiving a facial treatment at a spa">
+        </div>
+        <div class="svc-body">
+          <h3>Facial &amp; Skin Therapy</h3>
+          <span class="svc-price">From ₹1,500</span>
+          <p>Diagnostic facials, peels and hydration therapy built around your actual skin, not a trend.</p>
+        </div>
+      </div>
+
+      <div class="svc-card reveal">
+        <div class="svc-img">
+          <span class="svc-num">VI</span>
+          <img src="https://images.pexels.com/photos/19664872/pexels-photo-19664872.jpeg" alt="Luxurious barbershop interior with modern styling chairs and mirrors">
+        </div>
+        <div class="svc-body">
+          <h3>Men's Grooming Suite</h3>
+          <span class="svc-price">From ₹900</span>
+          <p>Sharp cuts, beard sculpting and a head massage you'll start booking on purpose.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE VIDEO -->
+<section class="feature-video" id="artistry">
+  <video id="featureVideo" autoplay muted loop playsinline poster="https://images.pexels.com/photos/29586687/hair-artist-hair-coloring-hairdresser-29586687.jpeg">
+    <source src="https://videos.pexels.com/video-files/29586687/12735070_1440_2560_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="wrap feature-inner">
+    <div class="feature-text reveal">
+      <span class="eyebrow">Watch The Craft</span>
+      <h2>Colour, applied by hand</h2>
+      <p>Every colour service starts with a consultation, not a chart. Watch how our colourists section, foil and tone in real time — no two heads get the same formula.</p>
+      <button class="mute-btn" id="muteBtn">🔇 Unmute</button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Inside Royal Reflection</span>
+      <h2>A look around</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g-tall reveal">
+        <img src="https://images.pexels.com/photos/35844833/pexels-photo-35844833.png" alt="Modern hair salon interior with stylish lighting">
+        <figcaption>The Colour Bar</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="https://images.pexels.com/photos/17471377/pexels-photo-17471377.jpeg" alt="Hands showcasing elegant gradient nail art">
+        <figcaption>Nail Studio</figcaption>
+      </figure>
+      <figure class="g-wide reveal">
+        <img src="https://images.pexels.com/photos/7195805/pexels-photo-7195805.jpeg" alt="Backwash chairs in a contemporary beauty salon">
+        <figcaption>Wash Lounge</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="https://images.pexels.com/photos/37229298/pexels-photo-37229298.jpeg" alt="Woman receiving a soothing facial treatment at a spa">
+        <figcaption>Skin Therapy</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="https://images.pexels.com/photos/11447772/pexels-photo-11447772.jpeg" alt="Close-up of a makeup artist applying eyeshadow">
+        <figcaption>Makeup Studio</figcaption>
+      </figure>
+      <figure class="g-tall reveal">
+        <img src="https://images.pexels.com/photos/705255/pexels-photo-705255.jpeg" alt="Spacious salon interior with contemporary design">
+        <figcaption>Main Floor</figcaption>
+      </figure>
+      <figure class="g-wide reveal">
+        <img src="https://images.pexels.com/photos/19666192/pexels-photo-19666192.jpeg" alt="Serene spa setting with a woman receiving a soothing massage">
+        <figcaption>Spa Suite</figcaption>
+      </figure>
+      <figure class="reveal">
+        <img src="https://images.pexels.com/photos/10028673/pexels-photo-10028673.jpeg" alt="Close-up of hair stylist using a hairdryer and brush">
+        <figcaption>Blow-Dry Bar</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="reviews" style="background:#f1ece0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In Their Words</span>
+      <h2>What regulars say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="testi-mark">"</span>
+        <p>My colourist asked more questions about my lifestyle than my hairdresser of ten years ever did. The balayage has held its shape for four months.</p>
+        <span class="testi-name">Ananya Deshpande</span>
+        <span class="testi-role">Hair Artistry, Regular since 2023</span>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-mark">"</span>
+        <p>Booked the bridal trial mostly out of nerves. Left with a face chart, a backup plan, and the calmest I'd felt in weeks of wedding planning.</p>
+        <span class="testi-name">Sneha Kulkarni</span>
+        <span class="testi-role">Bridal Makeup</span>
+      </div>
+      <div class="testi-card reveal">
+        <span class="testi-mark">"</span>
+        <p>The 90-minute spa ritual is now a monthly line item in my calendar, not a treat. That's the highest compliment I can pay a spa.</p>
+        <span class="testi-name">Rohit Marathe</span>
+        <span class="testi-role">Spa &amp; Massage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / VISIT -->
+<section class="dark-section" id="visit">
+  <div class="wrap book-grid">
+    <div class="reveal">
+      <span class="eyebrow">Reserve Your Chair</span>
+      <h2 style="margin-top:14px;font-size:clamp(30px,4vw,42px);">Let's get you on the books</h2>
+      <p style="margin-top:14px;max-width:480px;">Tell us what you're after and a stylist will call to confirm timing — usually within the hour during salon hours.</p>
+      <form class="book-form" id="bookForm" style="margin-top:32px;">
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">Full Name</label>
+            <input id="fname" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="fphone">Phone Number</label>
+            <input id="fphone" type="tel" placeholder="+91 98xxxxxxx" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="fservice">Service</label>
+            <select id="fservice" required>
+              <option value="">Choose a ritual</option>
+              <option>Hair Artistry</option>
+              <option>Spa &amp; Massage</option>
+              <option>Nail Studio</option>
+              <option>Bridal &amp; Editorial Makeup</option>
+              <option>Facial &amp; Skin Therapy</option>
+              <option>Men's Grooming Suite</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fdate">Preferred Date</label>
+            <input id="fdate" type="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="fnote">Anything we should know?</label>
+          <textarea id="fnote" rows="3" placeholder="Allergies, hair history, inspiration photos, etc."></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="justify-self:start;">Request Appointment</button>
+        <p class="form-msg" id="formMsg">Thank you — we've received your request and will call shortly to confirm your slot.</p>
+      </form>
+    </div>
+
+    <div class="visit-card reveal">
+      <div class="reflect">
+        <img src="https://images.pexels.com/photos/7750117/pexels-photo-7750117.jpeg" alt="Elegant interior of a modern salon with spacious layout">
+        <div class="reflect-ghost" style="background-image:url('https://images.pexels.com/photos/7750117/pexels-photo-7750117.jpeg');"></div>
+      </div>
+      <div class="visit-item">
+        <b>Address</b>
+        <span>2nd Floor, Mirage Arcade, Senapati Bapat Road, Pune – 411016</span>
+      </div>
+      <div class="visit-item">
+        <b>Hours</b>
+        <span>Tue – Sun · 10:00 AM – 8:30 PM<br>Closed Mondays</span>
+      </div>
+      <div class="visit-item">
+        <b>Phone &amp; Email</b>
+        <span>+91 98200 00000<br>hello@royalreflection.in</span>
+      </div>
+      <div class="visit-item">
+        <b>Follow Along</b>
+        <div class="social-row">
+          <a href="#" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="foot-logo">Royal <em style="color:var(--gold-light);font-style:normal;">Reflection</em></span>
+      </div>
+      <nav class="foot-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#visit">Visit Us</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Royal Reflection. All rights reserved.</span>
+      <span>Pune, Maharashtra</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('solid', window.scrollY > 40);
+  });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const navLinks = document.querySelector('.nav-links');
+  burger.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '64px';
+    navLinks.style.right = '24px';
+    navLinks.style.background = 'rgba(10,38,32,.97)';
+    navLinks.style.padding = '20px 26px';
+    navLinks.style.borderRadius = '4px';
+    navLinks.style.gap = '18px';
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Feature video mute toggle
+  const featureVideo = document.getElementById('featureVideo');
+  const muteBtn = document.getElementById('muteBtn');
+  muteBtn.addEventListener('click', () => {
+    featureVideo.muted = !featureVideo.muted;
+    muteBtn.textContent = featureVideo.muted ? '🔇 Unmute' : '🔊 Mute';
+  });
+
+  // Fake booking confirmation
+  const bookForm = document.getElementById('bookForm');
+  const formMsg = document.getElementById('formMsg');
+  bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formMsg.style.display = 'block';
+    bookForm.reset();
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
